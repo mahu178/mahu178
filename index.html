@@ -9,6 +9,7 @@
         <link rel="icon" type="image/png" href="/images/favicon.png" />
         <link rel="alternate" href="vi.html" hreflang="vi-VN" />
         <meta name="color-scheme" content="light dark">
+        <script src="scripts/grid.js"></script>
     </head>
 
     <body class="grid">
@@ -24,51 +25,5 @@
             </main>
         </div>
         <div id="embed" class="hidden-para"></div>
-        
-        <script>
-            const embed = document.getElementById('embed');
-            const pageLinks = document.querySelectorAll('a[data-page]');
-
-            async function loadPage(page, pushState = true) {
-                if (pushState) {
-                    history.pushState({ page }, '', '?=' + page);
-                }
-
-                if (page === 'home') {
-                    embed.innerHTML = '';
-                    embed.classList.add('hidden-para');
-                    return;
-                }
-
-                try {
-                    const response = await fetch(page + '.html');
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    const html = await response.text();
-                    embed.innerHTML = html;
-                    embed.classList.remove('hidden-para');
-                } catch (error) {
-                    embed.innerHTML = '<header><div>404.bruh</div><div><a href="index.html">Close all</a></div></header><main><h1>404</h1>nothing here for now…</main>';
-                    embed.classList.remove('hidden-para');
-                }
-            }
-
-            document.addEventListener('click', event => {
-                const link = event.target.closest('a[data-page]');
-                if (!link) return;
-                event.preventDefault();
-                loadPage(link.dataset.page);
-            });
-
-            window.addEventListener('popstate', event => {
-                const statePage = event.state?.page || 'home';
-                loadPage(statePage, false);
-            });
-
-            const params = new URLSearchParams(location.search);
-            const initialPage = params.get('page') || 'home';
-            if (initialPage !== 'home') {
-                loadPage(initialPage, false);
-            }
-        </script>
     </body>
 </html>

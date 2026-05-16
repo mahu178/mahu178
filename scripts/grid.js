@@ -1,5 +1,7 @@
 (function() {
-    const embedRoot = document.getElementById('embed');
+    function getEmbedRoot() {
+        return document.getElementById('embed');
+    }
 
     function isExternalLink(href) {
         try {
@@ -41,7 +43,11 @@
     }
 
     document.addEventListener('click', function(event) {
-        const anchor = event.target.closest('a');
+        let targetElement = event.target;
+        if (targetElement.nodeType !== Node.ELEMENT_NODE) {
+            targetElement = targetElement.parentElement;
+        }
+        const anchor = targetElement && targetElement.closest ? targetElement.closest('a') : null;
         if (!anchor) return;
         const href = anchor.getAttribute('href');
         if (!href || href.startsWith('mailto:') || href.startsWith('tel:')) return;
@@ -49,6 +55,9 @@
         const path = resolveFetchPath(href);
         if (!path) return;
         event.preventDefault();
+
+        const embedRoot = getEmbedRoot();
+        if (!embedRoot) return;
 
         const currentEmbed = anchor.closest('#embed, .embedded-page');
         const target = currentEmbed ? document.createElement('div') : embedRoot;
@@ -64,6 +73,8 @@
     window.addEventListener('popstate', function(event) {
         const state = event.state;
         if (state && state.embed) {
+            const embedRoot = getEmbedRoot();
+            if (!embedRoot) return;
             while (embedRoot.firstChild) {
                 embedRoot.removeChild(embedRoot.firstChild);
             }

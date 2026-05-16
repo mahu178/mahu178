@@ -11,20 +11,27 @@
         <meta name="color-scheme" content="light dark">
     </head>
 
-    <body>
-        
-        <main class="grid">
-            <div><h1><a href="?page=about" data-page="about">mahu178</a>'s personal whatever</h1> is officially online(?). <a href="?page=site" data-page="site">this site</a> is a whole mess that i am almost bothered to clean. for quick access, here are <a href="?page=portfolio" data-page="portfolio">my portfolio or best works</a>, <a href="?page=projects" data-page="projects">my projects</a>, and <a href="?page=blog" data-page="blog">my blog</a>.</div>
-            <div id="embed" class="hidden-para"></div>
-        </main>
+    <body class="grid">
+        <div>
+            <header>index.html</header>
 
+            <main>
+                <h1><a href="?=about" data-page="#">mahu178</a>'s personal whatever</h1> is officially online(?). <a href="?=site" data-page="#">this site</a> is a whole mess that i am almost bothered to clean. for quick access, here are <a href="?=portfolio" data-page="#">my portfolio or best works</a>, <a href="?=projects" data-page="#">my projects</a>, and <a href="?=blog" data-page="#">my blog</a>.
+
+                <footer>
+                    site last updated: 16/05/2026</br>latest update: <a href="?=about" data-page="#">about.html</a>
+                </footer>
+            </main>
+        </div>
+        <div id="embed" class="hidden-para"></div>
+        
         <script>
             const embed = document.getElementById('embed');
             const pageLinks = document.querySelectorAll('a[data-page]');
 
             async function loadPage(page, pushState = true) {
                 if (pushState) {
-                    history.pushState({ page }, '', '?page=' + page);
+                    history.pushState({ page }, '', '?=' + page);
                 }
 
                 if (page === 'home') {
@@ -40,7 +47,7 @@
                     embed.innerHTML = html;
                     embed.classList.remove('hidden-para');
                 } catch (error) {
-                    embed.textContent = 'nothing here for now…';
+                    embed.innerHTML = '<header><div>404.bruh</div><div><a href="index.html">Close all</a></div></header><main><h1>404</h1>nothing here for now…</main>';
                     embed.classList.remove('hidden-para');
                 }
             }

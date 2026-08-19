@@ -50,19 +50,6 @@ q {
 	color: var(--acc-hc)
 }
 
-body.index {
-	width: 100vw
-}
-
-main.index {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
 a:link {
 	color: var(--acc-hc);
 }
@@ -98,7 +85,6 @@ header {
 	align-items: center;
 	padding: 0.5ch 1ch;
 }
-nav.header a {color: var(--text)}
 
 ::selection {
 	color: var(--bg);
@@ -132,10 +118,12 @@ h1.site-name {
 h2 {
 	font-size: var(--step-3);
 	font-style: italic;
+	color: var(--acc-hc);
 }
 
 h3 {
 	font-size: var(--step-2);
+	color: var(--acc-hc);
 }
 
 h4,
@@ -168,25 +156,4 @@ figcaption {
 
 main {
 	padding: 1ch;
-}
-
-main.index {
-	min-height: 100vh;
-	margin: auto;
-	padding: 0;
-}
-
-#frame {
-	--overlay-offset: min(3vw, 3vh);
-	position: fixed;
-	inset: 0;
-	z-index: 9999;
-	background: url(images/bg-corner1.svg), url(images/bg-corner2.svg), url(images/bg-corner3.svg), url(images/bg-corner4.svg), url(images/bg-side1.svg), url(images/bg-side2.svg), url(images/bg-side3.svg), url(images/bg-side4.svg);
-	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-	background-position: var(--overlay-offset) var(--overlay-offset), calc(100% - var(--overlay-offset)) var(--overlay-offset), calc(100% - var(--overlay-offset)) calc(100% - var(--overlay-offset)), var(--overlay-offset) calc(100% - var(--overlay-offset)), center var(--overlay-offset), calc(100% - var(--overlay-offset)) center, center calc(100% - var(--overlay-offset)), var(--overlay-offset) center;
-	background-size: var(--overlay-offset) var(--overlay-offset), var(--overlay-offset) var(--overlay-offset), var(--overlay-offset) var(--overlay-offset), var(--overlay-offset) var(--overlay-offset), calc(100% - 2 * var(--overlay-offset)) var(--overlay-offset), var(--overlay-offset) calc(100% - 2 * var(--overlay-offset)), calc(100% - 2 * var(--overlay-offset)) var(--overlay-offset), var(--overlay-offset) calc(100% - 2 * var(--overlay-offset));
-	cursor: default;
-	width: 100%; height: 100%;
-    pointer-events: none;
-	filter: brightness(var(--frame-brightness)) opacity(0.35);
 }

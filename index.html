@@ -10,28 +10,56 @@
 	<meta name="description" content="MÈO MÈO on the internet <<vine boom sound effect>>" />
 	<meta name="keywords" content="portfolio, projects, contact, about me" />
 	<script src="scripts/script.js" defer></script>
+    <style>
+        body {
+            width: 100vw;
+            text-align: center;
+            background-color: var(--bg);
+        }
+
+        main {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: auto;
+            padding: 0;
+        }
+
+        #frame {
+            --overlay-offset: min(3vw, 3vh);
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: url(images/bg-corner1.svg), url(images/bg-corner2.svg), url(images/bg-corner3.svg), url(images/bg-corner4.svg), url(images/bg-side1.svg), url(images/bg-side2.svg), url(images/bg-side3.svg), url(images/bg-side4.svg);
+            background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+            background-position: var(--overlay-offset) var(--overlay-offset), calc(100% - var(--overlay-offset)) var(--overlay-offset), calc(100% - var(--overlay-offset)) calc(100% - var(--overlay-offset)), var(--overlay-offset) calc(100% - var(--overlay-offset)), center var(--overlay-offset), calc(100% - var(--overlay-offset)) center, center calc(100% - var(--overlay-offset)), var(--overlay-offset) center;
+            background-size: var(--overlay-offset) var(--overlay-offset), var(--overlay-offset) var(--overlay-offset), var(--overlay-offset) var(--overlay-offset), var(--overlay-offset) var(--overlay-offset), calc(100% - 2 * var(--overlay-offset)) var(--overlay-offset), var(--overlay-offset) calc(100% - 2 * var(--overlay-offset)), calc(100% - 2 * var(--overlay-offset)) var(--overlay-offset), var(--overlay-offset) calc(100% - 2 * var(--overlay-offset));
+            cursor: default;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            filter: brightness(var(--frame-brightness));
+        }
+    </style>
 </head>
 
-<body class="index">
-
-	<main class="index">
+<body>
+	<main>
 		<div class="logo-section">
 			<h1 class="site-name">mahu178</h1>
 		</div>
-
-		<nav class="index">
-			<a href="about.html">About</a> •
-			<a href="projects.html">Projects</a> •
-            <a href="blog.html">Blog</a> •
-			<a href="contact.html">Contact</a>
+		<nav>
+			<a href="about.html">About</a> • <a href="projects.html">Projects</a> • <a href="blog.html">Blog</a> • <a href="contact.html">Contact</a>
 		</nav>
-
-        <p class="index">Quick links: <a href="https://soundcloud.com/mahu178">SoundCloud</a> • <a href="https://mahu178.newgrounds.com/audio">Newgrounds</a> • <a href="https://www.youtube.com/@mahu178">YouTube</a> • <a href="https://github.com/mahu178">GitHub</a> • <a href="https://discord.gg/q94Nxc7dAx">Discord (temp invite)</a></p>
-	Theme: <select id="theme-mode" aria-label="Select theme mode">
-		<option value="auto">Auto</option>
-		<option value="light">Light</option>
-		<option value="dark">Dark</option>
-	</select>
+		<p>Quick links: <a href="https://soundcloud.com/mahu178">SoundCloud</a> • <a href="https://mahu178.newgrounds.com/audio">Newgrounds</a> • <a href="https://www.youtube.com/@mahu178">YouTube</a> • <a href="https://github.com/mahu178">GitHub</a> • <a href="https://discord.gg/q94Nxc7dAx">Discord (temp invite)</a></p> Theme: <select id="theme-mode" aria-label="Select theme mode">
+			<option value="auto">Auto</option>
+			<option value="light">Light</option>
+			<option value="dark">Dark</option>
+		</select>
 	</main>
 	<div id="frame" aria-hidden="true"></div>
 </body>

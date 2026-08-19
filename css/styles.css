@@ -17,7 +17,7 @@
 
 html[data-theme="dark"] {
 	--text: #fff4df;
-	--acc-lc: #0380DA;
+	--acc-lc: #36A0FF;
 	/* low contrast with background */
 	--acc-hc: #FEA24E;
 	/* high contrast */
@@ -26,7 +26,7 @@ html[data-theme="dark"] {
 
 html[data-theme="light"] {
 	--text: #132e2c;
-	--acc-lc: #DDB905;
+	--acc-lc: #BC9D05;
 	--acc-hc: #5E8F06;
 	--bg: #fff4df;
 }

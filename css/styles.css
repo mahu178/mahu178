@@ -26,8 +26,8 @@ html[data-theme="dark"] {
 
 html[data-theme="light"] {
 	--text: #011f1e;
-	--acc-lc: #ccab01;
-	--acc-hc: #517c03;
+	--acc-lc: #9C8204;
+	--acc-hc: #355301;
 	--bg: #fee5be;
 }
 

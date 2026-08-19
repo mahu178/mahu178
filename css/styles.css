@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wdth,wght@0,50..75,600..700;1,50..75,600..700&family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+	--fontHead: 'Anybody', 'Arial Narrow', 'Roboto Condensed', 'Inter Tight', 'Nimbus Sans', 'Helvetica Neue', sans-serif;
+	--fontMain: 'Familjen Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+/* @link https://utopia.fyi/type/calculator?c=204,20,1.067,1000,20,1.333,4,1,&s=0.75,1.5|2|3|4|6,s-l&g=xs,l,l,12 */
+:root {
+	--step--1: clamp(0.9377rem, 1.2314rem + -0.4699cqi, 1.1715rem);
+	--step-0: 1.25rem;
+	--step-1: clamp(1.3338rem, 1.2485rem + 0.6683cqi, 1.6663rem);
+	--step-2: clamp(1.4231rem, 1.2186rem + 1.604cqi, 2.2211rem);
+	--step-3: clamp(1.5185rem, 1.1488rem + 2.8991cqi, 2.9607rem);
+	--step-4: clamp(1.6202rem, 1.024rem + 4.6763cqi, 3.9467rem);
+}
+
+html[data-theme="dark"] {
+	--text: #fee5be;
+	--acc-lc: #027bd2;
+	/* low contrast with background */
+	--acc-hc: #ff9b3c;
+	/* high contrast */
+	--bg: #011f1e;
+}
+
+html[data-theme="light"] {
+	--text: #011f1e;
+	--acc-lc: #ccab01;
+	--acc-hc: #517c03;
+	--bg: #fee5be;
+}
+
+body {
+	font-family: var(--fontMain);
+	font-size: var(--step-0);
+	background-color: var(--bg);
+	color: var(--text);
+	max-width: 100%;
+	margin: 1ch;
+}
+
+main.home {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+a:link {
+	color: var(--acc-hc);
+}
+
+a:visited {
+	color: var(--acc-lc);
+}
+
+a:hover,
+a:focus {
+	color: var(--text);
+	background-color: var(--acc-lc);
+}
+
+a:active {
+	color: var(--text);
+}
+
+::selection {
+	color: var(--bg);
+	background: var(--acc-hc);
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--fontHead);
+	font-stretch: 75%;
+    margin:0.5em 0 0.33em;
+}
+
+h1 {
+	font-size: var(--step-4);
+	font-stretch: 75%;
+	color: var(--acc-lc);
+}
+
+h1.site-name {
+	font-size: min(50vw,70vh);
+	font-stretch: 50%;
+	font-weight: 600;
+	font-style: italic;
+	line-height: 0;
+}
+
+h2 {
+	font-size: var(--step-3);
+	font-style: italic;
+}
+
+h3 {
+	font-size: var(--step-2);
+}
+
+div.faq-item {
+	border-left: solid var(--acc-hc);
+	margin: 2ch 0;
+	padding-left: 1ch;
+	max-width: 60ch;
+}
+
+div.faq-question {
+	padding-bottom: 1ch;
+	font-size: var(--step-1);
+	font-weight: 700;
+}
+
+nav.main {
+    text-align: center;
+    background-color: var(--bg);
+}

@@ -22,6 +22,7 @@ html[data-theme="dark"] {
 	--acc-hc: #FEA24E;
 	/* high contrast */
 	--bg: #132e2c;
+	--frame-brightness: 100%;
 }
 
 html[data-theme="light"] {
@@ -29,6 +30,7 @@ html[data-theme="light"] {
 	--acc-lc: #DDB905;
 	--acc-hc: #5E8F06;
 	--bg: #fff4df;
+	--frame-brightness: 0%;
 }
 
 body {
@@ -169,18 +171,22 @@ main {
 }
 
 main.index {
+	min-height: 100vh;
+	margin: auto;
 	padding: 0;
 }
 
-#page-overlay {
-	--overlay-offset: min(6vw, 6vh);
+#frame {
+	--overlay-offset: min(3vw, 3vh);
 	position: fixed;
 	inset: 0;
 	z-index: 9999;
-	background: url(images/bg-corner.svg), url(images/bg-corner.svg), url(images/bg-corner.svg), url(images/bg-corner.svg), url(images/bg-side.svg), url(images/bg-side.svg), url(images/bg-side.svg), url(images/bg-side.svg);
+	background: url(images/bg-corner1.svg), url(images/bg-corner2.svg), url(images/bg-corner3.svg), url(images/bg-corner4.svg), url(images/bg-side1.svg), url(images/bg-side2.svg), url(images/bg-side3.svg), url(images/bg-side4.svg);
 	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 	background-position: var(--overlay-offset) var(--overlay-offset), calc(100% - var(--overlay-offset)) var(--overlay-offset), calc(100% - var(--overlay-offset)) calc(100% - var(--overlay-offset)), var(--overlay-offset) calc(100% - var(--overlay-offset)), center var(--overlay-offset), calc(100% - var(--overlay-offset)) center, center calc(100% - var(--overlay-offset)), var(--overlay-offset) center;
 	background-size: var(--overlay-offset) var(--overlay-offset), var(--overlay-offset) var(--overlay-offset), var(--overlay-offset) var(--overlay-offset), var(--overlay-offset) var(--overlay-offset), calc(100% - 2 * var(--overlay-offset)) var(--overlay-offset), var(--overlay-offset) calc(100% - 2 * var(--overlay-offset)), calc(100% - 2 * var(--overlay-offset)) var(--overlay-offset), var(--overlay-offset) calc(100% - 2 * var(--overlay-offset));
 	cursor: default;
 	width: 100%; height: 100%;
+    pointer-events: none;
+	filter: brightness(var(--frame-brightness)) opacity(0.35);
 }

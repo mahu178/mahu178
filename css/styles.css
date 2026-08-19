@@ -22,7 +22,6 @@ html[data-theme="dark"] {
 	--acc-hc: #FEA24E;
 	/* high contrast */
 	--bg: #132e2c;
-	--frame-brightness: 100%;
 }
 
 html[data-theme="light"] {
@@ -30,7 +29,6 @@ html[data-theme="light"] {
 	--acc-lc: #DDB905;
 	--acc-hc: #5E8F06;
 	--bg: #fff4df;
-	--frame-brightness: 0%;
 }
 
 body {
@@ -98,12 +96,12 @@ h3 {
 	font-stretch: 75%;
 	margin: 0.5em 0 0.33em;
 	background-color: var(--bg);
+	color: var(--acc-lc);
 }
 
 h1 {
 	font-size: var(--step-4);
 	font-stretch: 75%;
-	color: var(--acc-lc);
 }
 
 h1.site-name {
@@ -118,12 +116,10 @@ h1.site-name {
 h2 {
 	font-size: var(--step-3);
 	font-style: italic;
-	color: var(--acc-hc);
 }
 
 h3 {
 	font-size: var(--step-2);
-	color: var(--acc-hc);
 }
 
 h4,

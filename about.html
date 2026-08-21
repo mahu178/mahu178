@@ -12,12 +12,15 @@
 
 <body>
 	<header>
-		<a id="home" href="./index.html">178</a>
-		<select id="theme-mode" aria-label="Select theme mode">
-			<option value="auto">Auto</option>
-			<option value="light">Light</option>
-			<option value="dark">Dark</option>
-		</select>
+		<a id="home" href="../index.html">178</a>
+		<button id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">☰</button>
+		<nav id="site-menu" hidden>
+			<a href="../about.html">About</a>
+			<a href="../projects.html">Projects</a>
+			<a href="../blog.html">Blog</a>
+			<a href="../contact.html">Contact</a>
+			<button id="theme-mode" type="button" aria-label="Theme: auto">Theme: Auto</button>
+		</nav>
 	</header>
 
 	<main>

@@ -1,22 +1,46 @@
-const themeMode = document.getElementById('theme-mode');
-const htmlElement = document.documentElement;
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('site-menu');
+const themeButton = document.getElementById('theme-mode');
+const themes = ['auto', 'light', 'dark'];
+const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-// Load saved theme or default to 'auto'
-const savedTheme = localStorage.getItem('theme') || 'auto';
-themeMode.value = savedTheme;
-applyTheme(savedTheme);
+let themeIndex = themes.indexOf(localStorage.getItem('theme'));
+if (themeIndex < 0) themeIndex = 0;
 
-themeMode.addEventListener('change', (e) => {
-    const theme = e.target.value;
-    localStorage.setItem('theme', theme);
-    applyTheme(theme);
+function setTheme() {
+    const selectedTheme = themes[themeIndex];
+    const theme = selectedTheme === 'auto'
+        ? (systemTheme.matches ? 'dark' : 'light')
+        : selectedTheme;
+
+    document.documentElement.dataset.theme = theme;
+
+    themeButton.textContent =
+        `Theme: ${selectedTheme[0].toUpperCase()}${selectedTheme.slice(1)}`;
+    themeButton.setAttribute('aria-label', `Theme: ${selectedTheme}`);
+
+    localStorage.setItem('theme', selectedTheme);
+}
+
+if (menuToggle && menu) {
+    menuToggle.addEventListener('click', () => {
+        const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+
+        menuToggle.setAttribute('aria-expanded', String(!isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+        menu.hidden = isOpen;
+    });
+}
+
+themeButton.addEventListener('click', () => {
+    themeIndex = (themeIndex + 1) % themes.length;
+    setTheme();
 });
 
-function applyTheme(theme) {
-    if (theme === 'auto') {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        htmlElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-    } else {
-        htmlElement.setAttribute('data-theme', theme);
+systemTheme.addEventListener('change', () => {
+    if (themes[themeIndex] === 'auto') {
+        setTheme();
     }
-}
+});
+
+setTheme();

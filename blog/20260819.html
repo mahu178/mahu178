@@ -6,35 +6,44 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>First launch!!!</title>
 	<link rel="icon" type="image/png" href="../images/favicon.png" />
-	<link rel="stylesheet" href="../css/styles.css?v=20260820">
-	<script src="../scripts/script.js?v=20260820" defer></script>
+	<link rel="stylesheet" href="../css/styles.css?v=20260821">
+	<script src="../scripts/script.js?v=20260821" defer></script>
+	<style>
+		nav {
+			display: flex;
+			justify-content: space-between;
+		}
+	</style>
 </head>
 
 <body>
 	<header>
 		<a id="home" href="../index.html">178</a>
-		<select id="theme-mode" aria-label="Select theme mode">
-			<option value="auto">Auto</option>
-			<option value="light">Light</option>
-			<option value="dark">Dark</option>
-		</select>
+		<button id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">☰</button>
+		<nav id="site-menu" hidden>
+			<a href="../about.html">About</a>
+			<a href="../projects.html">Projects</a>
+			<a href="../blog.html">Blog</a>
+			<a href="../contact.html">Contact</a>
+			<button id="theme-mode" type="button" aria-label="Theme: auto">Theme: Auto</button>
+		</nav>
 	</header>
 
 	<main>
 		<h1>First launch!!!</h1>
 		<small class="blog-date">August 19, 2026</small>
-        <p>Finally the most barebone version of the site is here!!!!! (boom) (boom) (confetti) (boom) (party popper) (screams of the damned)</p><hr>
+        <p class="blog-excerpt">Finally the most barebone version of the site is here!!!!! (boom) (boom) (confetti) (boom) (party popper) (screams of the damned)</p><hr>
         <p>Well, ever since like 3 months ago I've made like 5 different protypes already... They are genuinely cool but I,, do NOT have the skills for that (yet)</p>
         <p>For now this site might be drier than AFV, but there are genuinely cool things coming soon!</p>
         <p>lil credits for the stuff currently on this site:</p>
         <ul>
-            <li>fonts are <a href="https://fonts.google.com/specimen/Anybody">Anybody</a> by Tyler Finck for headings and <a href="https://fonts.google.com/specimen/Familjen+Grotesk">Familjen Grotesk</a> by Familjen STHLM AB for body text</li>
-            <li>the responsive font sizing by <a href="https://utopia.fyi/">Utopia</a></li>
+            <li>fonts are <a href="https://fonts.google.com/specimen/Anybody" target="_blank" rel="noopener noreferrer">Anybody</a> by Tyler Finck for headings and <a href="https://fonts.google.com/specimen/Familjen+Grotesk" target="_blank" rel="noopener noreferrer">Familjen Grotesk</a> by Familjen STHLM AB for body text</li>
+            <li>the responsive font sizing by <a href="https://utopia.fyi/" target="_blank" rel="noopener noreferrer">Utopia</a></li>
         </ul>
         <p>It's almost midnight so that's all for now. I'll make another blog about responsive design soon (mayhaps)</p>
 
 		<nav>
-			<a href="../blog.html">Back to blog</a>
+			<p>Back to <a href="../blog.html">blogs.</a></p>
 			<p>Next blog: <a href="20260820.html">Responsive Design (a rant)</a></p>
 		</nav>
 	</main>

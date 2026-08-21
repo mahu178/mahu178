@@ -15,6 +15,16 @@
 	--step-4: clamp(1.6202rem, 1.024rem + 4.6763cqi, 3.9467rem);
 }
 
+body {
+	font-family: var(--fontMain);
+	font-size: var(--step-0);
+	background: url("images/bg.png");
+	background-color: var(--bg);
+	color: var(--text);
+	max-width: 55ch;
+	margin: auto;
+}
+
 html[data-theme="dark"] {
 	--text: #fff4df;
 	--acc-lc: #36A0FF;
@@ -31,17 +41,13 @@ html[data-theme="light"] {
 	--bg: #fff4df;
 }
 
-body {
-	font-family: var(--fontMain);
-	font-size: var(--step-0);
-	background-color: var(--bg);
-	color: var(--text);
+p, a, small, figcaption, h1, h2, h3, h4, summary, blockquote, ul, ol, li {
 	max-width: 55ch;
-	margin: auto;
+	background-color: var(--bg);
 }
 
-p {
-	max-width: 55ch;
+p.blog-excerpt {
+	font-size: var(--step-1);
 }
 
 q {
@@ -69,6 +75,7 @@ a:active {
 a#home {
 	font-family: var(--fontHead);
 	font-size: var(--step-4);
+	background-color: transparent;
 	font-stretch: 50%;
 	font-weight: 600;
 	font-style: italic;
@@ -82,6 +89,27 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	padding: 0.5ch 1ch;
+	position: relative;
+}
+
+#site-menu {
+	background-color: var(--acc-lc);
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	z-index: 1;
+	padding: 1ch;
+}
+
+a:visited#site-menu, a#site-menu {
+	color: var(--text);
+	background-color: var(--acc-lc);
+}
+
+#site-menu[hidden] {
+	display: none;
 }
 
 ::selection {
@@ -95,7 +123,6 @@ h3 {
 	font-family: var(--fontHead);
 	font-stretch: 75%;
 	margin: 0.5em 0 0.33em;
-	background-color: var(--bg);
 	color: var(--acc-lc);
 }
 

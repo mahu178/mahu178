@@ -18,7 +18,6 @@
 body {
 	font-family: var(--fontMain);
 	font-size: var(--step-0);
-	background: url("images/bg.png");
 	background-color: var(--bg);
 	color: var(--text);
 	max-width: 55ch;

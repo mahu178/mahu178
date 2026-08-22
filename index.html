@@ -11,6 +11,15 @@
 	<meta name="keywords" content="portfolio, projects, contact, about me" />
     <script src="scripts/script.js?v=20260821" defer></script>
     <style>
+        @keyframes DropIn {
+            0% {
+                transform: translateY(-100vh);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
         html[data-theme="dark"] {
             --frame-brightness: 100%;
         }
@@ -24,12 +33,13 @@
         }
 
         h1 {
-            font-size: min(46vw, 70vh);
+            font-size: min(45vw, 70vh);
             font-stretch: 50%;
             font-weight: 600;
             font-style: italic;
             line-height: 10%;
             background: transparent;
+            animation: DropIn 0.5s ease-out;
         }
 
         main {
@@ -48,15 +58,60 @@
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background: url(images/bg-corner1.svg), url(images/bg-corner2.svg), url(images/bg-corner3.svg), url(images/bg-corner4.svg), url(images/bg-side1.svg), url(images/bg-side2.svg), url(images/bg-side3.svg), url(images/bg-side4.svg);
-            background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-            background-position: var(--overlay-offset) var(--overlay-offset), calc(100% - var(--overlay-offset)) var(--overlay-offset), calc(100% - var(--overlay-offset)) calc(100% - var(--overlay-offset)), var(--overlay-offset) calc(100% - var(--overlay-offset)), center var(--overlay-offset), calc(100% - var(--overlay-offset)) center, center calc(100% - var(--overlay-offset)), var(--overlay-offset) center;
-            background-size: var(--overlay-offset) var(--overlay-offset), var(--overlay-offset) var(--overlay-offset), var(--overlay-offset) var(--overlay-offset), var(--overlay-offset) var(--overlay-offset), calc(100% - 2 * var(--overlay-offset)) var(--overlay-offset), var(--overlay-offset) calc(100% - 2 * var(--overlay-offset)), calc(100% - 2 * var(--overlay-offset)) var(--overlay-offset), var(--overlay-offset) calc(100% - 2 * var(--overlay-offset));
             cursor: default;
             width: 100%;
             height: 100%;
             pointer-events: none;
             filter: brightness(var(--frame-brightness));
+        }
+
+        #frame span {
+            position: absolute;
+            display: block;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        #frame .corner {
+            width: var(--overlay-offset);
+            height: var(--overlay-offset);
+            background-image: url(images/bg-corner.svg);
+        }
+
+        #frame .corner:nth-child(1) { top: var(--overlay-offset); left: var(--overlay-offset); }
+        #frame .corner:nth-child(2) { top: var(--overlay-offset); right: var(--overlay-offset); transform: rotate(90deg); }
+        #frame .corner:nth-child(3) { right: var(--overlay-offset); bottom: var(--overlay-offset); transform: rotate(180deg); }
+        #frame .corner:nth-child(4) { bottom: var(--overlay-offset); left: var(--overlay-offset); transform: rotate(270deg); }
+
+        #frame .side {
+            width: var(--overlay-offset);
+            height: var(--overlay-offset);
+            background-image: url(images/bg-side.svg);
+            transform-origin: center;
+        }
+
+        #frame .side:nth-child(5) {
+            top: var(--overlay-offset);
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #frame .side:nth-child(6) {
+            top: 50%;
+            right: var(--overlay-offset);
+            transform: translate(50%, -50%) rotate(90deg);
+        }
+
+        #frame .side:nth-child(7) {
+            bottom: var(--overlay-offset);
+            left: 50%;
+            transform: translate(-50%, 50%) rotate(180deg);
+        }
+
+        #frame .side:nth-child(8) {
+            top: 50%;
+            left: var(--overlay-offset);
+            transform: translate(-50%, -50%) rotate(270deg);
         }
     </style>
 </head>
@@ -72,7 +127,10 @@
 		<p>Quick links: <a href="https://soundcloud.com/mahu178" target="_blank" rel="noopener noreferrer">SoundCloud</a> • <a href="https://mahu178.newgrounds.com/audio" target="_blank" rel="noopener noreferrer">Newgrounds</a> • <a href="https://www.youtube.com/@mahu178" target="_blank" rel="noopener noreferrer">YouTube</a> • <a href="https://github.com/mahu178" target="_blank" rel="noopener noreferrer">GitHub</a> • <a href="https://discord.gg/q94Nxc7dAx" target="_blank" rel="noopener noreferrer">Discord (temp invite)</a></p> 
         <button id="theme-mode" type="button" aria-label="Theme: auto">Theme: Auto</button>
 	</main>
-	<div id="frame" aria-hidden="true"></div>
+	<div id="frame" aria-hidden="true">
+        <span class="corner"></span><span class="corner"></span><span class="corner"></span><span class="corner"></span>
+        <span class="side"></span><span class="side"></span><span class="side"></span><span class="side"></span>
+    </div>
 </body>
 
 </html>

@@ -29,7 +29,7 @@ html[data-theme="dark"] {
 	--text: #fff4df;
 	--acc-lc: #36A0FF;
 	/* low contrast with background */
-	--acc-hc: #FEA24E;
+	--acc-hc: #fea24e;
 	/* high contrast */
 	--bg: #132e2c;
 }
@@ -37,7 +37,7 @@ html[data-theme="dark"] {
 html[data-theme="light"] {
 	--text: #132e2c;
 	--acc-lc: #BC9D05;
-	--acc-hc: #5E8F06;
+	--acc-hc: #2f6d01;
 	--bg: #fff4df;
 }
 
@@ -105,7 +105,7 @@ header {
 	border-bottom: solid var(--acc-hc);
 }
 
-#site-menu a {
+#site-menu a, #site-menu button {
 	color: var(--text);
 	background-color: transparent;
 	margin: auto 1ch;

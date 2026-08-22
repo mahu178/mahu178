@@ -85,7 +85,7 @@ a#home {
 header {
 	background-color: var(--acc-lc);
 	display: flex;
-	flex-direction: row;
+	flex-flow: row;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0.5ch 1ch;
@@ -96,7 +96,7 @@ header {
 #site-menu {
 	background-color: var(--acc-lc);
 	display: flex;
-	flex-direction: row;
+	flex-flow: row wrap;
 	position: absolute;
 	top: 100%;
 	right: 0;
